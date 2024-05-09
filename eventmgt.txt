@@ -1,0 +1,287 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Apr 04, 2024 at 08:33 AM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.4.26
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `eventmgt`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `addevent`
+--
+
+CREATE TABLE `addevent` (
+  `id` int(5) NOT NULL,
+  `eventtype` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `addevent`
+--
+
+INSERT INTO `addevent` (`id`, `eventtype`) VALUES
+(1, 'single');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `booking`
+--
+
+CREATE TABLE `booking` (
+  `id` int(5) NOT NULL,
+  `Customername` varchar(20) NOT NULL,
+  `Mobilenumber` varchar(20) NOT NULL,
+  `BookingDate` varchar(20) NOT NULL,
+  `Item` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `booking`
+--
+
+INSERT INTO `booking` (`id`, `Customername`, `Mobilenumber`, `BookingDate`, `Item`) VALUES
+(2, 'udai', '6264892079', '11-12-2000', 'laptop'),
+(3, 'sita', '8889103775', '11-12-2000', 'luxury frog');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `eventmgt1`
+--
+
+CREATE TABLE `eventmgt1` (
+  `id` int(5) NOT NULL,
+  `eventname` varchar(20) NOT NULL,
+  `creationdate` varchar(20) NOT NULL,
+  `dress` varchar(20) NOT NULL,
+  `cost` varchar(20) NOT NULL,
+  `type` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `eventmgt1`
+--
+
+INSERT INTO `eventmgt1` (`id`, `eventname`, `creationdate`, `dress`, `cost`, `type`) VALUES
+(2, 'music', '11-5-21', 'lahenga', '20000', 'single'),
+(3, 'partydj', '-15', 'choli', '30000', 'group'),
+(4, 'fog competition', '11-11-10', 'chaniya choli', '30000', 'single'),
+(5, 'drama', '11-11-10', 'choli', '15000', 'group'),
+(6, 'singing', '21-11-10', 'kurtapajma', '25000', 'group'),
+(7, 'wedding', '11-5-21', 'ghagra and shervani', '1000000', 'group'),
+(8, 'mehendi', '12-11-10', 'saaree', '25000', 'single'),
+(9, 'Mahila sangeet', '11-11-10', 'evening gown', '35000', 'group'),
+(10, 'Ganesh mahotsav', '11-11-10', 'Suits', '38000', 'group'),
+(11, 'DJ party', '12-11-10', 'Minis and shots', '20000', 'group');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `eventtype`
+--
+
+CREATE TABLE `eventtype` (
+  `id` int(5) NOT NULL,
+  `servicename` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `eventtype`
+--
+
+INSERT INTO `eventtype` (`id`, `servicename`) VALUES
+(1, 'single'),
+(2, 'group'),
+(3, 'single');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `services`
+--
+
+CREATE TABLE `services` (
+  `id` int(5) NOT NULL,
+  `servicename` varchar(20) NOT NULL,
+  `place` varchar(20) NOT NULL,
+  `description` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `services`
+--
+
+INSERT INTO `services` (`id`, `servicename`, `place`, `description`) VALUES
+(1, ' mariage ceremony', 'agra', 'wonder artist'),
+(2, ' party', 'agra', 'wonder artist'),
+(3, ' music', 'agra', 'wow interesting'),
+(4, ' music', 'agra', 'wow interesting'),
+(5, ' music', 'agra', 'wow interesting'),
+(6, 'music', 'agra', 'wow interesting'),
+(7, 'pooja ceremony', 'agra', 'wow interesting'),
+(8, 'pooja ceremony', 'agra', 'wow interesting'),
+(9, 'party', 'agra', 'wow interesting');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `userregistration`
+--
+
+CREATE TABLE `userregistration` (
+  `id` int(5) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `Adderess` varchar(20) NOT NULL,
+  `Mobileno` varchar(20) NOT NULL,
+  `Password` varchar(20) NOT NULL,
+  `Email` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `userregistration`
+--
+
+INSERT INTO `userregistration` (`id`, `username`, `Adderess`, `Mobileno`, `Password`, `Email`) VALUES
+(1, 'meeta', 'kesarbagg road', '6264892079', 'm1234', 'anu@gmail.com'),
+(2, 'rakesh', 'nemi nagar', '8732450821', 'admin', 'rakesh@gmail.com'),
+(3, 'shubham', 'shir sagar', '9691126440', 'shubham', 'shub@gmail.com'),
+(4, 'khushi', 'ramroad', '6231450982', 'khushi', 'khush@gmail.com'),
+(5, 'ramesh', 'marimata', '9825030056', 'ramesh1', 'ram@gmail.com'),
+(6, 'harssh', 'marimata', '7890234566', 'harshi', 'harsh@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `venue`
+--
+
+CREATE TABLE `venue` (
+  `id` int(5) NOT NULL,
+  `venutype` varchar(20) NOT NULL,
+  `venue` varchar(20) NOT NULL,
+  `cost` int(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `venue`
+--
+
+INSERT INTO `venue` (`id`, `venutype`, `venue`, `cost`) VALUES
+(2, ' music', 'shagungarden', 9000),
+(3, ' music', 'familygathering', 2147483647),
+(4, ' music', 'vinaygarden', 9000);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `addevent`
+--
+ALTER TABLE `addevent`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `booking`
+--
+ALTER TABLE `booking`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `eventmgt1`
+--
+ALTER TABLE `eventmgt1`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `eventtype`
+--
+ALTER TABLE `eventtype`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `services`
+--
+ALTER TABLE `services`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `userregistration`
+--
+ALTER TABLE `userregistration`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `venue`
+--
+ALTER TABLE `venue`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `addevent`
+--
+ALTER TABLE `addevent`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `booking`
+--
+ALTER TABLE `booking`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `eventmgt1`
+--
+ALTER TABLE `eventmgt1`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `eventtype`
+--
+ALTER TABLE `eventtype`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `services`
+--
+ALTER TABLE `services`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `userregistration`
+--
+ALTER TABLE `userregistration`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `venue`
+--
+ALTER TABLE `venue`
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
